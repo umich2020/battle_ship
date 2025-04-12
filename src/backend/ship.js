@@ -1,4 +1,4 @@
-function ship(len,x,y, horizontal=true){
+ function ship(len,x,y, horizontal=true,name="null"){
     let length = len
     let times_hit =0
     let sunk=false
@@ -6,9 +6,9 @@ function ship(len,x,y, horizontal=true){
     let end_location = find_end_location()
     function find_end_location(){
         if(horizontal === true){
-            return [x + length, y]
+            return [x + length-1, y]
         } else {
-            return [x , y+length]
+            return [x , y+length-1]
         }
     }
 
@@ -28,8 +28,11 @@ function ship(len,x,y, horizontal=true){
     function getEndLocation() {
         return end_location;
     }
-    return {length,get_times_hit,isSunk,getStartLocation,getEndLocation,hit,horizontal,x,y}
+    function get_Name(){
+        return name
+    }
+    return {length,get_Name,get_times_hit,isSunk,getStartLocation,getEndLocation,hit,horizontal,x,y}
 }
 module.exports = ship
-let boat = ship(5,3,2)
-console.log(boat.end_location)
+// let boat = ship(5,3,2)
+// console.log(boat.end_location)

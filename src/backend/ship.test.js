@@ -1,5 +1,6 @@
 // ship.test.js
 const ship = require('./ship');
+// import {ship} from "./ship.js"
 
 test('increase hit 1x', () => {
     const boat = ship();
@@ -39,9 +40,9 @@ test('return array of 3,2', () => {
 
 test('return array of 8,2 with horizontal being true', () => {
     const boat = ship(5, 3, 2, true);
-    expect(boat.getEndLocation()).toEqual([8, 2]); 
+    expect(boat.getEndLocation()).toEqual([7, 2]); 
 });
 test('return array of 3,2 with horizontal being false', () => {
     const boat = ship(5, 3, 2, false);
-    expect(boat.getEndLocation()).toEqual([3, 7]); 
+    expect(boat.getEndLocation()).toEqual([3, 6]); 
 });
