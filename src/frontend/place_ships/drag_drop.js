@@ -1,7 +1,7 @@
-
+let size = 0
 function startDrag(ev){
     bgDefault_Event_Listener()
-
+    size = parseInt(ev.target.getAttribute("data-size"))
     // console.log(ev.target.getAttribute("data-temp"))//allows me to get custom attributes
     let obj = {id:ev.target.id, x:ev.target.getAttribute("data-x"),
         y:ev.target.getAttribute("data-y")
@@ -55,8 +55,49 @@ function startDrag(ev){
 
 }
 function dragging(ev){
-    ev.preventDefault()
-    bgOrange_Event_Listener()
+    // const data = ev.dataTransfer.items
+    // // const test = JSON.parse(data)
+    // // const data = ev.dataTransfer.files
+    const horizontal = document.getElementById("horizontal_text").getAttribute("class")
+    console.log(horizontal)
+    // console.log(data)
+    // console.log("horizontal is ")
+    let elem_id = ev.target.id
+
+    let y_grid = parseInt(elem_id[1])
+    let x_grid = parseInt(elem_id[3])
+    // console.log(typeof size)
+    // console.log(y_grid+" "+x_grid)
+    // console.log("expression is ")
+    // console.log(x_grid + size)
+    let out_of_bounds = false
+    if (horizontal === "true"){
+        if(x_grid + size > 5){
+            out_of_bounds = true
+        }
+    } else {
+        if(y_grid + size >5){
+            out_of_bounds = true
+        }
+    }
+    
+    if(out_of_bounds === false){
+        const submit =document.querySelector("#submit")
+        submit.textContent = "Submit!" 
+        ev.preventDefault()
+        bgOrange_Event_Listener()
+    } else {
+        console.log('selection in out of bounds drag again')
+        const submit =document.querySelector("#submit")
+        submit.textContent = "invalid move, try again" 
+    }
+    // let horizontal = ev.target.getAttribute(data)
+    // const test = document.querySelectorAll("box")
+    // test.forEach((box)=>{
+    //     box.setAttribute("ondrop","return true")
+    //     box.style.background = "#FC7A57" 
+
+    // })
 
 }
 function bgOrange_Event_Listener(){
@@ -77,9 +118,11 @@ function bgDefault_Event_Listener(){
 //note this 
 
 function drop(ev){
-    ev.preventDefault()
+    // ev.preventDefault()
     const data = ev.dataTransfer.getData("text/plain")
-    
+    console.log("this is data")
+    console.log(data)
+
 
 
     //we get ship info which is in attributes
@@ -134,10 +177,7 @@ function drop(ev){
     // console.log("the change is now")
     // console.log(boat)
 }
-function rotate(){
-    //change text on size
-    //set attriubtes to true or false
-}
+
 function submit(){
     //this is submit button
     // we go through each object

@@ -16,7 +16,9 @@ function addElement(parent,elem,text=null,clas,id=null){
         element.textContent = text
     }
     element.setAttribute("ondragstart","startDrag(event)")
+    // element.setAttribute("ondragover","dragging(event)")
     element.setAttribute("ondragover","dragging(event)")
+
 
     element.setAttribute("ondrop","drop(event)")
 
