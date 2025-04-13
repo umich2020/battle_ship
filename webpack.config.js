@@ -4,15 +4,25 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/frontend/place_ships/create_board.js",
+  entry: {
+    index: "./src/frontend/place_ships/create_board.js",
+    play: "./src/frontend/operator.js",
+  },
   output: {
-    filename: "main.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/place.html",
+      template: "src/index.html",
+      filename: "index.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/play.html",
+      filename: "play.html",
+      chunks: ["play"],
     }),
   ],
   module: {
