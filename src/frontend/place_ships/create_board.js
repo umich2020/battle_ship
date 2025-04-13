@@ -1,5 +1,7 @@
 import "./place_ships.css"
 import { allButtons } from "../buttons/entry"
+import { submitting } from "../buttons/submit"
+submitting()
 allButtons()
 const board  = require("../../backend/gameboard")
 

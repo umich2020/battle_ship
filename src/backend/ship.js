@@ -5,7 +5,7 @@
     let start_location = [x,y]
     let end_location = find_end_location()
     function find_end_location(){
-        if(horizontal === true){
+        if(horizontal === true || horizontal === "true"){
             return [x + length-1, y]
         } else {
             return [x , y+length-1]

@@ -3,27 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Battle Ship</title>
+    <title>Document</title>
+    <style>
+      #div1,
+      #div2,
+      #div3 {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
     <link rel="stylesheet" href="./frontend/styles.css" />
-    <script src="./frontend/operator.js" type="module" defer></script>
-    
+    <script src="./frontend/place_ships/create_board.js" type="module" defer></script>
+    <script src="./frontend/buttons/entry.js" type="module" defer></script>
+
+    <script src="./frontend/place_ships/drag_drop.js" defer></script>
+
+
+    <!-- <script src="./frontend/place_ships/create_board.js" type="module" defer></script> -->
+
   </head>
-  <body class="reg_gameplay">
-    <!-- we're going to start with placing the core box, then do load screen -->
+  <body>
+    <header>
     <h1 id="place_ships">Place Ships</h1>
+    <h2 id="submit">Done</h2>
+    <horizontal_block>
+      <h2 id="rotate_button">Rotate: </h2>
+      <h2 id="horizontal_text" class="true">Horizontal</h2>
+    </horizontal_block>
+
+  </header>
     <grids>
-      <!-- <h2>Player Board</h2> -->
       <grid id="player_board">
-        <!-- do i turn class into a ship -->
-
-      </grid>
-      <grid id="computer_grid">
-        <!-- do i turn class into a ship -->
-
-
       </grid>
       </grids>
-    <bottom_ships>
+      <h2 draggable="true" data-temp="correct" id="Patrol" class="boats" ondragstart="startDrag(event)"
+      data-size = 1 data-y="null" data-x="null" data-horizontal=true 
+      >Patrol Boat</h2>
+      <h2 draggable="true" data-temp="correct" id="Sub" class="boats" ondragstart="startDrag(event)"
+      data-size = 2 data-y="null" data-x="null" data-horizontal=true 
+      >Submarine</h2>
+      <h2 draggable="true" data-temp="correct" id="Carrier" class="boats" ondragstart="startDrag(event)"
+      data-size = 3 data-y="null" data-x="null" data-horizontal=true 
+      >Carrier</h2>
+      
         <!-- <ship>random ship</ship> -->
         <!-- which is like length * size
          or it's a ship with many boxes
@@ -35,6 +61,12 @@
         where box is created by a function
         also fyi this id determined later
      -->
-    </bottom_ships>
+
+
+
+
+
+
+    <!-- the bug stems from ondragstart i believe, becuase i can move each and every box -->
   </body>
 </html>

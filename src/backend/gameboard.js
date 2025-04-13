@@ -20,7 +20,7 @@ function place(ship){
             //shit no i is y, because it's row and j is actually x so we just swap them
         }
     }
-    console.log(arr)
+    // console.log(arr)
 
 }
 function recieveAttack(cord, ships){
